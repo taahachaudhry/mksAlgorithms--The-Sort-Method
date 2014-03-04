@@ -37,7 +37,8 @@ module Sort
 
 ##########
 
-  def self.merge_sort(array)
+#merge: take two sorted arrays and merging them into one assorted array
+  def self.merge(arr1,arr2)
   end
 
 end

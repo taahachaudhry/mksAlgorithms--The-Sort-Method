@@ -81,4 +81,48 @@ describe 'Sort' do
       end
     end
   end
+
+  describe '.merge' do
+    context 'when the arguments are empty' do
+      it "returns an empty array" do
+        expect(Sort.merge([],[])).to eq([])
+      end
+    end
+
+    context 'when the arguments only have one element each' do
+      it "returns the single elements sorted" do
+        expect(Sort.merge([1],[2])).to eq([1,2])
+      end
+    end
+
+    context 'when the arguments only have postive numbers' do
+      it "returns the positive numbers sorted" do
+        expect(Sort.merge([1,3,4],[2,5,6])).to eq([1,2,3,4,5,6])
+      end
+    end
+
+    context 'when the arguments only have negative numbers' do
+      it "returns the negative numbers sorted" do
+        expect(Sort.merge([-1,-5,-9],[-2,-4,-8])).to eq([-9,-8,-5,-4,-2,-1])
+      end
+    end
+
+    context 'when the arguments have both pos. and neg. numbers' do
+      it 'returns the neg. first and then the pos. numbers' do
+        expect(Sort.merge([-2,-1,4,5],[-3,1,3,9])).to eq([-3,-2,-1,1,3,4,5,9])
+      end
+    end
+
+    context 'when the agruments have repeating elements' do
+      it 'returns the all the repeating elements in the sorted array' do
+        expect(Sort.merge([4,6,6,9],[1,6,7,7])).to eq([1,4,6,6,6,7,7,9])
+      end
+    end
+
+    context 'when the arguments have different amount of elements in them' do
+      it 'returns the array sorted correctly' do
+        expect(Sort.merge([1,2,3],[4,5])).to eq([1,2,3,4,5])
+      end
+    end
+  end
 end
