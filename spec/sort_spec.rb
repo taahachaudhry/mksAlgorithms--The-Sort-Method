@@ -103,7 +103,7 @@ describe 'Sort' do
 
     context 'when the arguments only have negative numbers' do
       it "returns the negative numbers sorted" do
-        expect(Sort.merge([-1,-5,-9],[-2,-4,-8])).to eq([-9,-8,-5,-4,-2,-1])
+        expect(Sort.merge([-9,-5,-1],[-8,-4,-2])).to eq([-9,-8,-5,-4,-2,-1])
       end
     end
 

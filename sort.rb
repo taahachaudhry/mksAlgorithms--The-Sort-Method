@@ -39,6 +39,34 @@ module Sort
 
 #merge: take two sorted arrays and merging them into one assorted array
   def self.merge(arr1,arr2)
+    i = j = 0
+    result = []
+
+    while i < arr1.length && j < arr2.length
+      if arr1[i] > arr2[j]
+        result.push(arr2[j])
+        j+=1
+      else
+        result.push(arr1[i])
+        i+=1
+      end
+    end
+
+    if arr1.length > i
+      result.concat(arr1[i..-1])
+    else
+      result.concat(arr2[j..-1])
+    end
   end
 
+#merge_sort:
+
+  def self.merge_sort(array)
+    if (array.length <=1)
+      return array
+    end
+    a = merge_sort(array.first_half)
+    b = merge_sort(array.second_half)
+    merge(a,b)
+  end
 end
