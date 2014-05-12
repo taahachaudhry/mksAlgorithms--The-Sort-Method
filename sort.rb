@@ -62,11 +62,15 @@ module Sort
 #merge_sort:
 
   def self.merge_sort(array)
-    if (array.length <=1)
+    if array.length <=1
       return array
     end
-    a = merge_sort(array.first_half)
-    b = merge_sort(array.second_half)
+
+    a = merge_sort(array[0..array.length/2-1])
+    b = merge_sort(array[array.length/2..-1])
     merge(a,b)
+
   end
+
+##########
 end
